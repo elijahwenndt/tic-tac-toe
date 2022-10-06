@@ -29,6 +29,7 @@ let playerTurn = 0
 let playerLetter = 'x'
 // let playerChoice = '';
 let turnCount = 0
+console.log(playerLetter + "'s turn")
 
 function checkWin (){
     let winnerCheck = winArr.some((item) => {
@@ -39,6 +40,7 @@ function checkWin (){
         )
         
     })
+
     console.log(winnerCheck)
     if (winnerCheck==true) {
         console.log(playerLetter + ': WINS')
@@ -52,9 +54,13 @@ function checkWin (){
         document.getElementById('7').removeEventListener('click', playerMove)
         document.getElementById('8').removeEventListener('click', playerMove)
     }
+    else if(winnerCheck==false && turnCount == 9) {
+        console.log('tie')
+    }
 }
 
 function playerMove () {
+    
     let playerChoice = this.id
     console.log(playerChoice)
     // checkWin()
@@ -65,6 +71,7 @@ function playerMove () {
         gameState.splice(playerChoice, 1, playerLetter)
         checkWin()
         playerLetter = 'o'
+        console.log(playerLetter + "'s turn")
         document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove)
     }
     else if(playerTurn == 1) {
@@ -74,9 +81,10 @@ function playerMove () {
         gameState.splice(playerChoice, 1, playerLetter)
         checkWin()
         playerLetter = 'x'
+        console.log(playerLetter + "'s turn")
         document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove) 
     }
-    // checkWin()
+
 }
 
 
