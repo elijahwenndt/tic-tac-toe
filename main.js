@@ -27,9 +27,40 @@ document.getElementById('8').addEventListener('click', playerMove)
 
 let playerTurn = 0
 let playerLetter = 'x'
-// let playerChoice = '';
 let turnCount = 0
-console.log(playerLetter + "'s turn")
+
+document.getElementById("target").innerHTML="x starts first"
+function playerMove () {
+    let playerChoice = this.id
+    console.log(playerChoice)
+    if(playerTurn == 0) {
+        document.getElementById(`${playerChoice}`).innerHTML = playerLetter
+        playerTurn++
+        turnCount++
+        gameState.splice(playerChoice, 1, playerLetter)
+        console.log(gameState)
+        if(!checkWin()){
+            playerLetter = 'o'
+            document.getElementById("target").innerHTML=playerLetter + "'s turn"
+        }
+        document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove)
+        checkWin()
+    }
+    else if(playerTurn == 1) {
+        document.getElementById(`${playerChoice}`).innerHTML = playerLetter
+        playerTurn--
+        turnCount++
+        gameState.splice(playerChoice, 1, playerLetter)
+        console.log(gameState)
+        if (!checkWin()){
+            playerLetter = 'x'
+            document.getElementById("target").innerHTML=playerLetter + "'s turn"
+    }
+        document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove) 
+        checkWin()
+    }
+
+}
 
 function checkWin (){
     let winnerCheck = winArr.some((item) => {
@@ -41,9 +72,10 @@ function checkWin (){
         
     })
 
-    console.log(winnerCheck)
+    // console.log(winnerCheck)
     if (winnerCheck==true) {
-        console.log(playerLetter + ': WINS')
+        // document.getElementById("target").innerHTML=''
+        document.getElementById("target").innerHTML=playerLetter + ': WINS!'
         document.getElementById('0').removeEventListener('click', playerMove)
         document.getElementById('1').removeEventListener('click', playerMove)
         document.getElementById('2').removeEventListener('click', playerMove)
@@ -55,38 +87,8 @@ function checkWin (){
         document.getElementById('8').removeEventListener('click', playerMove)
     }
     else if(winnerCheck==false && turnCount == 9) {
-        console.log('tie')
+        document.getElementById("target").innerHTML='YOU BOTH ARE TRASH'
     }
+    return winnerCheck
 }
-
-function playerMove () {
-    
-    let playerChoice = this.id
-    console.log(playerChoice)
-    // checkWin()
-    if(playerTurn == 0) {
-        document.getElementById(`${playerChoice}`).innerHTML = playerLetter
-        playerTurn++
-        turnCount++
-        gameState.splice(playerChoice, 1, playerLetter)
-        console.log(gameState)
-        checkWin()
-        playerLetter = 'o'
-        console.log(playerLetter + "'s turn")
-        document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove)
-    }
-    else if(playerTurn == 1) {
-        document.getElementById(`${playerChoice}`).innerHTML = playerLetter
-        playerTurn--
-        turnCount++
-        gameState.splice(playerChoice, 1, playerLetter)
-        console.log(gameState)
-        checkWin()
-        playerLetter = 'x'
-        console.log(playerLetter + "'s turn")
-        document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove) 
-    }
-
-}
-
 
