@@ -8,13 +8,10 @@ div[class*="container"] {
 /* .container {
     min-height: 100px;
 } */
-.col {
-    min-height: 100px;
-}
+/* .col-4 {
+    min-height: 200px;
+} */
 
 .row {
-    min-height: 200px;
+    min-height: 180px;
 }
-.div:hover #0 {
-    background-color: lightblue;
-  }

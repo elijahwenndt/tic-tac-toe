@@ -69,6 +69,7 @@ function playerMove () {
         playerTurn++
         turnCount++
         gameState.splice(playerChoice, 1, playerLetter)
+        console.log(gameState)
         checkWin()
         playerLetter = 'o'
         console.log(playerLetter + "'s turn")
@@ -79,6 +80,7 @@ function playerMove () {
         playerTurn--
         turnCount++
         gameState.splice(playerChoice, 1, playerLetter)
+        console.log(gameState)
         checkWin()
         playerLetter = 'x'
         console.log(playerLetter + "'s turn")
