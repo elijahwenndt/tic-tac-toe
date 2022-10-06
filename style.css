@@ -15,3 +15,12 @@ div[class*="container"] {
 .row {
     min-height: 180px;
 }
+/* html {
+    background: url("") no-repeat center center fixed;
+  background-size: cover;
+} */
+
+/* li:not(.todo) {
+    text-decoration: line-through;
+    color: green;
+} */
