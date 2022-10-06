@@ -1,1 +1,46 @@
-// function bigClick
+
+let gameState = ['', '', '', '', '', '','','','']
+let playerTurn = 0
+let playerLetter = 'x'
+let playerChoice = '';
+// let clickValue = document.getElementById()
+
+function playerMove () {
+    if(playerTurn == 0) {
+        let playerChoice = this.id;
+        document.getElementById(`${playerChoice}`).innerHTML = playerLetter
+        playerTurn++
+        playerLetter = 'o'
+        console.log(playerTurn)
+        console.log(playerLetter)
+    }
+    else if(playerTurn == 1) {
+        let playerChoice = this.id;
+        document.getElementById(`${playerChoice}`).innerHTML = playerLetter
+        playerTurn--
+        playerLetter = 'x'
+        console.log(playerTurn)
+        console.log(playerLetter)
+
+    }
+}
+document.getElementById('0').addEventListener('click', playerMove)
+document.getElementById('1').addEventListener('click', playerMove)
+document.getElementById('2').addEventListener('click', playerMove)
+document.getElementById('3').addEventListener('click', playerMove)
+document.getElementById('4').addEventListener('click', playerMove)
+document.getElementById('5').addEventListener('click', playerMove)
+document.getElementById('6').addEventListener('click', playerMove)
+document.getElementById('7').addEventListener('click', playerMove)
+document.getElementById('8').addEventListener('click', playerMove)
+
+// document.getElementById('0').onclick = playerMove;
+// document.getElementById('1').onclick = playerMove;
+// document.getElementById('2').onclick = playerMove;
+// document.getElementById('3').onclick = playerMove;
+// document.getElementById('4').onclick = playerMove;
+// document.getElementById('5').onclick = playerMove;
+// document.getElementById('6').onclick = playerMove;
+// document.getElementById('7').onclick = playerMove;
+// document.getElementById('8').onclick = playerMove;
+// .addEventListener("click", playerMove);
