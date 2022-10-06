@@ -24,6 +24,7 @@ document.getElementById('5').addEventListener('click', playerMove)
 document.getElementById('6').addEventListener('click', playerMove)
 document.getElementById('7').addEventListener('click', playerMove)
 document.getElementById('8').addEventListener('click', playerMove)
+document.getElementById('reset').addEventListener('click', resetButton)
 
 let playerTurn = 0
 let playerLetter = 'x'
@@ -38,7 +39,6 @@ function playerMove () {
         playerTurn++
         turnCount++
         gameState.splice(playerChoice, 1, playerLetter)
-        console.log(gameState)
         if(!checkWin()){
             playerLetter = 'o'
             document.getElementById("target").innerHTML=playerLetter + "'s turn"
@@ -51,7 +51,6 @@ function playerMove () {
         playerTurn--
         turnCount++
         gameState.splice(playerChoice, 1, playerLetter)
-        console.log(gameState)
         if (!checkWin()){
             playerLetter = 'x'
             document.getElementById("target").innerHTML=playerLetter + "'s turn"
@@ -59,7 +58,6 @@ function playerMove () {
         document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove) 
         checkWin()
     }
-
 }
 
 function checkWin (){
@@ -69,12 +67,9 @@ function checkWin (){
             && gameState[item[0]]==gameState[item[1]]
             && gameState[item[1]]==gameState[item[2]]
         )
-        
     })
 
-    // console.log(winnerCheck)
     if (winnerCheck==true) {
-        // document.getElementById("target").innerHTML=''
         document.getElementById("target").innerHTML=playerLetter + ': WINS!'
         document.getElementById('0').removeEventListener('click', playerMove)
         document.getElementById('1').removeEventListener('click', playerMove)
@@ -92,3 +87,32 @@ function checkWin (){
     return winnerCheck
 }
 
+function resetButton () {
+    gameState = [
+        '', '', '',
+        '', '', '',
+        '','','']
+console.log(gameState)
+    playerTurn = 0
+    playerLetter = 'x'
+    turnCount = 0
+    document.getElementById('0').innerHTML = ''
+    document.getElementById('1').innerHTML = ''
+    document.getElementById('2').innerHTML = ''
+    document.getElementById('3').innerHTML = ''
+    document.getElementById('4').innerHTML = ''
+    document.getElementById('5').innerHTML = ''
+    document.getElementById('6').innerHTML = ''
+    document.getElementById('7').innerHTML = ''
+    document.getElementById('8').innerHTML = ''
+    document.getElementById("target").innerHTML='x starts first'
+    document.getElementById('0').addEventListener('click', playerMove)
+    document.getElementById('1').addEventListener('click', playerMove)
+    document.getElementById('2').addEventListener('click', playerMove)
+    document.getElementById('3').addEventListener('click', playerMove)
+    document.getElementById('4').addEventListener('click', playerMove)
+    document.getElementById('5').addEventListener('click', playerMove)
+    document.getElementById('6').addEventListener('click', playerMove)
+    document.getElementById('7').addEventListener('click', playerMove)
+    document.getElementById('8').addEventListener('click', playerMove)
+}
