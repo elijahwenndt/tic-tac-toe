@@ -11,6 +11,7 @@ function playerMove () {
         document.getElementById(`${playerChoice}`).innerHTML = playerLetter
         playerTurn++
         playerLetter = 'o'
+        document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove)
         console.log(playerTurn)
         console.log(playerLetter)
     }
@@ -19,6 +20,7 @@ function playerMove () {
         document.getElementById(`${playerChoice}`).innerHTML = playerLetter
         playerTurn--
         playerLetter = 'x'
+        document.getElementById(`${playerChoice}`).removeEventListener('click', playerMove)
         console.log(playerTurn)
         console.log(playerLetter)
 
