@@ -83,7 +83,6 @@ document.getElementById("target").innerHTML="X starts first"
 //finally it removes the event listener from what was clicked
 function playerMove () {
     let playerChoice = this.id
-    console.log(playerChoice)
     if(playerTurn == 0) {
         document.getElementById(`${playerChoice}`).innerHTML = playerLetter
         playerTurn++
