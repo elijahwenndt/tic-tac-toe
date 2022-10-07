@@ -1,0 +1,27 @@
+/* div[class*="col"] {
+    min-height: 250px;
+}
+
+div[class*="container"] {
+    min-height: 250px;
+} */
+/* .container {
+    min-height: 100px;
+} */
+/* .col-4 {
+    min-height: 200px;
+} */
+
+.row {
+    min-height: 180px;
+}
+body {
+  background: url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-size: 40px;
+}
+
+/* li:not(.todo) {
+    text-decoration: line-through;
+    color: green;
+} */
