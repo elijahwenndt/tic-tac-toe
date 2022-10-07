@@ -138,7 +138,7 @@ function checkWin (){
     }
     return winnerCheck
 }
-//resets site back to zero blanks everything out and adds back all eventlisteners
+//resets site back to zero blanks everything out and adds back all eventlisteners. needs refactoring
 function resetButton () {
     gameState = [
         '', '', '',
