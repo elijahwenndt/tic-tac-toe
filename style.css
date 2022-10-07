@@ -15,10 +15,11 @@ div[class*="container"] {
 .row {
     min-height: 180px;
 }
-/* html {
-    background: url("") no-repeat center center fixed;
+body {
+  background: url("background.jpg") no-repeat center center fixed;
   background-size: cover;
-} */
+  font-size: 40px;
+}
 
 /* li:not(.todo) {
     text-decoration: line-through;
