@@ -59,15 +59,26 @@ let winArr = [
 ]
 
 //needs refactoring. sets event listeners to the correct divs
-document.getElementById('0').addEventListener('click', playerMove)
-document.getElementById('1').addEventListener('click', playerMove)
-document.getElementById('2').addEventListener('click', playerMove)
-document.getElementById('3').addEventListener('click', playerMove)
-document.getElementById('4').addEventListener('click', playerMove)
-document.getElementById('5').addEventListener('click', playerMove)
-document.getElementById('6').addEventListener('click', playerMove)
-document.getElementById('7').addEventListener('click', playerMove)
-document.getElementById('8').addEventListener('click', playerMove)
+
+function addListeners () {
+    for (let i = 0; i < 9; i++) {
+        document.getElementById(i).addEventListener('click', playerMove)
+    }
+}
+addListeners();
+
+function removeListners () {
+    for (let i = 0; i < 9; i++) {
+        document.getElementById(i).removeEventListener('click', playerMove)
+    }
+}
+
+function makeBlank () {
+    for (let i = 0; i < 9; i++) {
+    document.getElementById(i).innerHTML = ''
+    }
+}
+
 document.getElementById('reset').addEventListener('click', resetButton)
 
 //global variables. turn counter, sets player letter to x to start. sets the first player turn to x's turn
@@ -121,15 +132,8 @@ function checkWin (){
 //if win con is met, displays win and then removes all event listeners. needs refactoring
     if (winnerCheck==true) {
         document.getElementById("target").innerHTML=playerLetter + ': WINS!'
-        document.getElementById('0').removeEventListener('click', playerMove)
-        document.getElementById('1').removeEventListener('click', playerMove)
-        document.getElementById('2').removeEventListener('click', playerMove)
-        document.getElementById('3').removeEventListener('click', playerMove)
-        document.getElementById('4').removeEventListener('click', playerMove)
-        document.getElementById('5').removeEventListener('click', playerMove)
-        document.getElementById('6').removeEventListener('click', playerMove)
-        document.getElementById('7').removeEventListener('click', playerMove)
-        document.getElementById('8').removeEventListener('click', playerMove)
+        removeListners();
+
     }
     //if its turn 9 and a win con hasnt been met, triggers tie condition 
     else if(winnerCheck==false && turnCount == 9) {
@@ -143,27 +147,10 @@ function resetButton () {
         '', '', '',
         '', '', '',
         '','','']
-console.log(gameState)
     playerTurn = 0
     playerLetter = 'X'
     turnCount = 0
-    document.getElementById('0').innerHTML = ''
-    document.getElementById('1').innerHTML = ''
-    document.getElementById('2').innerHTML = ''
-    document.getElementById('3').innerHTML = ''
-    document.getElementById('4').innerHTML = ''
-    document.getElementById('5').innerHTML = ''
-    document.getElementById('6').innerHTML = ''
-    document.getElementById('7').innerHTML = ''
-    document.getElementById('8').innerHTML = ''
+    makeBlank();
     document.getElementById("target").innerHTML='X starts first'
-    document.getElementById('0').addEventListener('click', playerMove)
-    document.getElementById('1').addEventListener('click', playerMove)
-    document.getElementById('2').addEventListener('click', playerMove)
-    document.getElementById('3').addEventListener('click', playerMove)
-    document.getElementById('4').addEventListener('click', playerMove)
-    document.getElementById('5').addEventListener('click', playerMove)
-    document.getElementById('6').addEventListener('click', playerMove)
-    document.getElementById('7').addEventListener('click', playerMove)
-    document.getElementById('8').addEventListener('click', playerMove)
+    addListeners();
 }
